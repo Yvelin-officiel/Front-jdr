@@ -1,0 +1,71 @@
+#gears-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#gears-container h2 {
+    text-align: center;
+}
+
+.gear-container {
+    border-radius: 20px;
+    background-color: rgb(212, 212, 212);
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 800px;
+    max-width: 650px;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.gear-card {
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 280px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 1px 2px 2px var(--hot-red);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.gear-card p {
+    margin: 3px;
+}
+
+.gear-image {
+    width: 52px;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.gear-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: auto;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gear-image-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

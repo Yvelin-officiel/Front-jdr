@@ -1,0 +1,17 @@
+<div id="spells-container">
+  <h1>Sorts</h1>
+  <div class="spell-container">
+    <div *ngFor="let spell of spells" class="spell-card">
+      <h2>{{ spell.name }}</h2>
+      <p><strong>Description:</strong> {{ spell.desc }}</p>
+      <p><strong>Portée:</strong> {{ spell.range }}</p>
+      <p><strong>Matériel:</strong> {{ spell.material }}</p>
+      <p><strong>Rituel:</strong> {{ spell.ritual }}</p>
+      <p><strong>Durée:</strong> {{ spell.duration }}</p>
+      <p><strong>Concentration:</strong> {{ spell.concentration }}</p>
+      <p><strong>Temps d'incantation:</strong> {{ spell.casting_time }}</p>
+      <p><strong>École:</strong> {{ spell.school }}</p>
+      <p><strong>Classe D&D:</strong> {{ spell.dnd_class }}</p>
+    </div>
+  </div>
+</div>

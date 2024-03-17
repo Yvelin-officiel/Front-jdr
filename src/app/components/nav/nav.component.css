@@ -1,0 +1,27 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 200px;
+}
+
+.icon{
+    box-shadow: 2px 2px 5px var(--hot-red2);
+    margin: 1px;
+    border-radius: 5px;
+    width: 60px;
+    background-color: rgb(191, 191, 191);
+    align-self: center;
+    transition: transform 0.3s;
+}
+
+.icon:hover{
+    transform: scale(1.1);
+}
+.active{
+   background-color: rgb(255, 255, 255);
+   width: 70px;
+}
+.active:hover{
+    transform: scale(1);
+}

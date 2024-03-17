@@ -1,0 +1,133 @@
+<form id="character-content" [formGroup]="characterForm">
+  <h1>Fiche personnage</h1>
+  <div class="forms">
+    <!-- NOM -->
+    <div class="form-element">
+      <label class="form__label" for="name">Nom</label>
+      <input class="form__input" formControlName="name" type="text" id="name" placeholder="Entrez votre nom"
+        size="30" />
+    </div>
+
+    <!-- RACE -->
+    <div class="form-element">
+      <label class="form__label" for="race">Race</label>
+      <input class="form__input" formControlName="race" type="text" formControlName="race" list="raceOptions" id="race"
+        placeholder="Choisissez votre race" (change)="updateRace()" size="20" />
+      <datalist id="raceOptions">
+        <option *ngFor="let race of races" [value]="race.name"></option>
+      </datalist>
+    </div>
+
+    <!-- TITRE -->
+    <div class="form-element">
+      <label class="form__label" for="titre">Titre</label>
+      <input class="form__input" formControlName="title" type="text" id="titre"
+        placeholder="Entrez le titre de votre personnage" size="40" />
+    </div>
+
+    <!-- CLASSE -->
+    <div class="form-element">
+      <label class="form__label" for="classe">Classe</label>
+      <input class="form__input" type="text" formControlName="class" list="classOptions" id="classe"
+        placeholder="Choisissez votre classe" (change)="updateLore()" size="20" />
+    </div>
+    <datalist id="classOptions">
+      <option *ngFor="let class of classes" [value]="class.name"></option>
+    </datalist>
+  </div>
+
+  <div class="wrapper">
+
+
+    <div class="forms" id="build">
+      <h2>Physique</h2>
+      <div class="input-group">
+        <!-- NIVEAU -->
+        <div class="form-element">
+          <label class="form__label" for="niveau">Niveau</label>
+          <input class="form__input" formControlName="level" type="number" id="niveau" placeholder="Niveau" value="1"
+            min="1" />
+        </div>
+        <!-- TAILLE -->
+        <div class="form-element">
+          <label class="form__label" for="taille">Taille</label>
+          <input class="form__input" formControlName="size" type="text" id="taille" placeholder="Taille" size="5" />
+        </div>
+      </div>
+      <div class="input-group">
+        <!-- AGE -->
+        <div class="form-element">
+          <label class="form__label" for="age">Âge</label>
+          <input class="form__input" formControlName="age" type="number" id="age" placeholder="Âge" min="1" />
+        </div>
+        <!-- POIDS -->
+        <div class="form-element">
+          <label class="form__label" for="poids">Poids</label>
+          <input class="form__input" formControlName="weight" type="text" id="poids" placeholder="Poids" size="5" />
+        </div>
+      </div>
+    </div>
+    
+    <!-- STATISTIQUES -->
+    <div class="forms" id="stats">
+      <h2>Statistiques</h2>
+      <div class="dual-input">
+        <!-- FORCE -->
+        <div class="form-element">
+          <label class="form__label" for="force">Force</label>
+          <input class="form__input" formControlName="strength" type="number" id="force" placeholder="For" min="1"
+            max="20" />
+        </div>
+        <div class="bonus-stat"> + {{ this.bonusStats.strength }}</div>
+        <!-- DEXTERITE -->
+        <div class="form-element">
+          <label class="form__label" for="dexterite">Dextérité</label>
+          <input class="form__input" formControlName="dexterity" type="number" id="dexterite" placeholder="Dex" min="1"
+            max="20" />
+        </div>
+        <div class="bonus-stat">+ {{ this.bonusStats.dexterity }}</div>
+        <!-- CONSTITUTION -->
+        <div class="form-element">
+          <label class="form__label" for="constitution">Constitution</label>
+          <input class="form__input" formControlName="constitution" type="number" id="constitution" placeholder="Con"
+            min="1" max="20" />
+        </div>
+        <div class="bonus-stat">+ {{ this.bonusStats.constitution }}</div>
+        <!-- INTELLIGENCE -->
+        <div class="form-element">
+          <label class="form__label" for="intelligence">Intelligence</label>
+          <input class="form__input" formControlName="intelligence" type="number" id="intelligence" placeholder="Int"
+            min="1" max="20" />
+        </div>
+        <div class="bonus-stat">+ {{ this.bonusStats.intelligence }}</div>
+
+        <!-- SAGESSE -->
+        <div class="form-element">
+          <label class="form__label" for="sagesse">Sagesse</label>
+          <input class="form__input" formControlName="wisdom" type="number" id="sagesse" placeholder="Sag" min="1"
+            max="20" />
+        </div>
+        <div class="bonus-stat">+ {{ this.bonusStats.wisdom }}</div>
+
+        <!-- CHARISME -->
+        <div class="form-element">
+          <label class="form__label" for="charisme">Charisme</label>
+          <input class="form__input" formControlName="charisma" type="number" id="charisme" placeholder="Cha" min="1"
+            max="20" />
+        </div>
+        <div class="bonus-stat">+ {{ this.bonusStats.charisma }}</div>
+      </div>
+      <img class="icon-button" (click)="generateRandomValues()" src="../../../assets/images/dice.png" alt="">
+    </div>
+
+    <!-- DESCRIPTIONS ET HISTOIRE -->
+    <div class="lores">
+      <h2>Description et Histoire</h2>
+      <textarea formControlName="raceDesc" placeholder="Description de la race" cols="50" rows="3"> </textarea>
+      <textarea formControlName="classDesc" placeholder="Description de la classe" cols="50" rows="5"></textarea>
+      <textarea formControlName="characterLore" name="lore" cols="50" rows="7"
+        placeholder="L'histoire de votre personnage..."> </textarea>
+    </div>
+
+  </div>
+</form>

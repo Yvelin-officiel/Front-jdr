@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+body,
+html {
+    margin: 0;
+}
+
+* {
+    cursor: url(./assets/cursors/MedievalSelect-ezgif.com-ani-to-apng-converter.png), auto;
+    font-family: 'Roboto', sans-serif;
+}
+img{
+    cursor: url(./assets/cursors/Gauntlet.cur), auto;
+}
+input, textarea {
+    cursor: url(./assets/cursors/Medieval\ Handwriting.cur), auto;
+}

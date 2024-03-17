@@ -1,0 +1,46 @@
+<div id="gears-container">
+  <!-- ARMES -->
+  <div id="weapons-container">
+    <h2>Armes</h2>
+    <div class="gear-container">
+      <div *ngFor="let weapon of weapons" class="gear-card">
+        <h2>{{ weapon.name }}</h2>
+        <!-- Image -->
+        <div class="gear-image-container">
+          <img class="gear-image" [src]="getWeaponImage(weapon.category)" alt="{{ weapon.name }}">
+          <span class="tooltip">{{ weapon.category }}</span>
+        </div>
+        <p><strong>Dégâts:</strong> {{ weapon.damage_dice }} {{ weapon.damage_type }}</p>
+        <p><strong>Poids:</strong> {{ weapon.weight }}</p>
+        <p><strong>Coût:</strong> {{ weapon.cost }}</p>
+        <ng-container *ngIf="weapon.properties && weapon.properties.length > 0">
+          <p><strong>Propriétés:</strong></p>
+          <ul>
+            <li *ngFor="let property of weapon.properties">{{ property }}</li>
+          </ul>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARMURES -->
+  <div id="armors-container">
+    <h2>Armures</h2>
+    <div class="gear-container">
+      <div *ngFor="let armor of armors" class="gear-card">
+        <h2>{{ armor.name }}</h2>
+        <!-- Image -->
+        <div *ngIf="getArmorImage(armor.category).length > 0" class="gear-image-container">
+          <img class="gear-image" [src]="getArmorImage(armor.category)" alt="{{ armor.name }}">
+          <span class="tooltip">{{ armor.category }}</span>
+        </div>
+        <p *ngIf="armor.category=='Spell'||'Class Feature'"><strong>Catégorie:</strong> {{ armor.category }}</p>
+        <p><strong>AC de base:</strong> {{ armor.base_ac }}</p>
+        <p><strong>Exigence de force:</strong> {{ armor.strength_requirement || 'Aucune' }}</p>
+        <p><strong>Coût:</strong> {{ armor.cost }}</p>
+        <p><strong>Désavantage de furtivité:</strong> {{ armor.stealth_disadvantage ? 'Oui' : 'Non' }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
